@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f2f2f2;
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.search {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.search input {
+    padding: 8px;
+    margin: 5px;
+    width: 200px;
+}
+
+.search button {
+    padding: 8px 15px;
+    cursor: pointer;
+}
+.jobs {
+    margin: 20px;
+}
+
+.job-card {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.job-card button {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
