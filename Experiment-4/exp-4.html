@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Job Portal</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Jobs</a>
+            <a href="#">Companies</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <section class="search">
+    <h2>Job Search Form</h2>
+
+    <form id="jobForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="jobTitle" placeholder="Job Title" required>
+        <input type="text" id="location" placeholder="Preferred Location" required>
+        
+        <select id="experience" required>
+            <option value="">Select Experience</option>
+            <option value="Fresher">Fresher</option>
+            <option value="1-3 Years">1-3 Years</option>
+            <option value="3+ Years">3+ Years</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<!-- User Profile Section -->
+<section class="profile">
+    <h2>User Profile</h2>
+    <div id="profileOutput">
+        <p>No data submitted yet.</p>
+    </div>
+</section>
+    <section class="search">
+        <h2>Find Jobs</h2>
+        <input type="text" placeholder="Job title">
+        <input type="text" placeholder="Location">
+        <button>Search</button>
+    </section>
+    <section class="post-job">
+    <h2>Post a Job</h2>
+
+    <form id="jobPostForm">
+        <input type="text" id="jobTitle" placeholder="Job Title" required>
+        <input type="text" id="companyName" placeholder="Company Name" required>
+        <input type="text" id="jobLocation" placeholder="Location" required>
+        <textarea id="jobDescription" placeholder="Job Description" required></textarea>
+        <button type="submit">Post Job</button>
+    </form>
+    </section>
+    <section class="jobs">
+        <h2>Available Jobs</h2>
+
+        <div class="job-card">
+            <h3>Software Developer</h3>
+            <p><b>Company:</b> ABC Tech</p>
+            <p><b>Location:</b> Bangalore</p>
+            <p>Looking for a fresher with basic programming knowledge.</p>
+            <button>Apply</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Data Analyst</h3>
+            <p><b>Company:</b> DataCorp</p>
+            <p><b>Location:</b> Hyderabad</p>
+            <p>Knowledge of Python and SQL is required.</p>
+            <button>Apply</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Web Developer</h3>
+            <p><b>Company:</b> Web Solutions</p>
+            <p><b>Location:</b> Remote</p>
+            <p>HTML, CSS and basic JavaScript knowledge.</p>
+            <button>Apply</button>
+        </div>
+
+    </section>
+    <footer>
+        <p>© 2026 Job Portal Project</p>
+    </footer>
+<script>
+    document.getElementById("jobForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent page reload
+
+        // Get values
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let jobTitle = document.getElementById("jobTitle").value;
+        let location = document.getElementById("location").value;
+        let experience = document.getElementById("experience").value;
+
+        // Display dynamically
+        document.getElementById("profileOutput").innerHTML = `
+            <h3>Profile Details</h3>
+            <p><b>Name:</b> ${name}</p>
+            <p><b>Email:</b> ${email}</p>
+            <p><b>Job Title:</b> ${jobTitle}</p>
+            <p><b>Preferred Location:</b> ${location}</p>
+            <p><b>Experience:</b> ${experience}</p>
+        `;
+
+        // Optional: Reset form
+        document.getElementById("jobForm").reset();
+    });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const form = document.getElementById("jobPostForm");
+    const jobsSection = document.querySelector(".jobs");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Get values
+        const title = document.getElementById("jobTitle").value;
+        const company = document.getElementById("companyName").value;
+        const location = document.getElementById("jobLocation").value;
+        const description = document.getElementById("jobDescription").value;
+
+        // Create new job card
+        const jobCard = document.createElement("div");
+        jobCard.classList.add("job-card");
+
+        jobCard.innerHTML = `
+            <h3>${title}</h3>
+            <p><b>Company:</b> ${company}</p>
+            <p><b>Location:</b> ${location}</p>
+            <p>${description}</p>
+            <button>Apply</button>
+        `;
+
+        // Add to jobs section
+        jobsSection.appendChild(jobCard);
+
+        // Reset form
+        form.reset();
+    });
+
+});
+</script>
+</body>
+</html>
